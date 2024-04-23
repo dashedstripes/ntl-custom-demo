@@ -4,7 +4,7 @@ export default function Home({ data }: { data: any }) {
       <div className="absolute bg-black text-white w-full h-[577px] z-20 top-[169px] p-16 flex justify-center items-center">
         <h1 className="font-bold text-5xl">{data?.title}</h1>
       </div>
-      <img src="/honeywell.png" alt="page"/>
+      <img src="/honeywell.jpg" alt="page"/>
     </div>
   );
 }
