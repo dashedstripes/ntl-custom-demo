@@ -4,7 +4,7 @@ import { fetchContentfulData } from "./adapters/contentful"
 type DataSource = "CONTENTFUL" | "CONTENTSTACK"
 
 export type Component = "HERO" | "BLOG_POST"
-export type ComponentMap = { [key in Component]: DataSource }
+export type ComponentMap = { [key in Component]?: DataSource }
 
 export type PageData = {
   hero?: {
