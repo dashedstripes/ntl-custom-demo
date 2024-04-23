@@ -25,7 +25,7 @@ export async function getStaticProps() {
   const data: PageData = await fetchData({
     "HERO": "CONTENTFUL",
     "BLOG_POST": "CONTENTFUL"
-  });
+  }, true);
 
   return {
     props: {

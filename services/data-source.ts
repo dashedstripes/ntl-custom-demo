@@ -1,7 +1,7 @@
 import { fetchConnectData } from "./adapters/connect"
 import { fetchContentfulData } from "./adapters/contentful"
 
-type DataSource = "CONNECT" | "CONTENTFUL"
+type DataSource = "CONTENTFUL" | "CONTENTSTACK"
 
 export type Component = "HERO" | "BLOG_POST"
 export type ComponentMap = { [key in Component]: DataSource }
@@ -17,26 +17,31 @@ export type PageData = {
   }
 }
 
-export async function fetchData(map: ComponentMap): Promise<PageData> {
+export async function fetchData(map: ComponentMap, useConnect: boolean): Promise<PageData> {
   let data: PageData = {};
 
-  const transformedMap: {
-    [key in DataSource]: Component[]
-  } = {
-    "CONNECT": [],
-    "CONTENTFUL": []
+  if(useConnect) {
+    data = {...data, ...await fetchConnectData(map)}
+  } else {
+    const transformedMap: {
+      [key in DataSource]: Component[]
+    } = {
+      "CONTENTFUL": [],
+      "CONTENTSTACK": []
+    }
+  
+    for(const [component, source] of Object.entries(map)) {
+      transformedMap[source].push(component as Component)
+    }
+  
+    if(transformedMap["CONTENTFUL"].length > 0) {
+      data = {...data, ...await fetchContentfulData(transformedMap["CONTENTFUL"])}
+    }
+    
+    if(transformedMap["CONTENTSTACK"].length > 0) {
+    }
   }
 
-  for(const [component, source] of Object.entries(map)) {
-    transformedMap[source].push(component as Component)
-  }
-
-  if(transformedMap["CONNECT"].length > 0) {
-  }
-
-  if(transformedMap["CONTENTFUL"].length > 0) {
-    data = {...data, ...await fetchContentfulData(transformedMap["CONTENTFUL"])}
-  }
 
   return data
 }
