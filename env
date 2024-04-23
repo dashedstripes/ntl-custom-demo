@@ -1,0 +1,14 @@
+# Netlify Connect
+CONNECT_URL=""
+CONNECT_TOKEN=""
+
+# Contentful
+
+# Create an API Key - https://app.contentful.com/spaces/[SPACE_ID]/api/keys
+CONTENTFUL_SPACE_ID=""
+CONTENTFUL_ENVIRONMENT_ID=""
+CONTENTFUL_DELIVERY_ACCESS_TOKEN=""
+CONTENTFUL_PREVIEW_ACCESS_TOKEN=""
+
+# Create a Content Management API token - https://app.contentful.com/spaces/[SPACE_ID]/api/cma_tokens
+CONTENTFUL_CMA_TOKEN=""
