@@ -27,9 +27,9 @@ export default function Home({ data }: { data: PageData }) {
 
 export async function getStaticProps() {
   const data: PageData = await fetchData({
-    "HERO": "CONTENTFUL",
-    "BLOG_POST": "CONTENTFUL"
-  }, false);
+    "HERO": "CONTENTSTACK",
+    "BLOG_POST": "CONTENTSTACK"
+  }, true);
 
   return {
     props: {

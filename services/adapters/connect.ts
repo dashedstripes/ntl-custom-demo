@@ -5,6 +5,9 @@ const HERO_CONTENTSTACK = `
     edges {
       node {
         title
+        image {
+          url
+        }
       }
     }
   }
@@ -23,8 +26,10 @@ const HERO_CONTENTFUL = `
   }
 `
 
+// when we moved to a shared ContentStack instance
+// update this to be allContentstackBlogPost
 const BLOG_POST_CONTENTSTACK = `
-  allContentstackBlogPost {
+  allContentstackPost {
     edges {
       node {
         title
@@ -104,7 +109,7 @@ export async function fetchConnectData(map: ComponentMap): Promise<PageData> {
   if(json?.data?.allContentstackHero) {
     data.hero = {
       title: json.data.allContentstackHero.edges[0].node.title + ` (via Netlify Connect)`,
-      image: ""
+      image: json.data.allContentstackHero.edges[0].node.image.url
     }
   }
 
@@ -115,11 +120,11 @@ export async function fetchConnectData(map: ComponentMap): Promise<PageData> {
     }
   }
 
-  if(json?.data?.allContentstackBlogPost) {
+  if(json?.data?.allContentstackPost) {
     data.blogPost = {
-      title: json.data.allContentstackBlogPost.edges[0].node.title + ` (via Netlify Connect)`,
-      content: json.data.allContentstackBlogPost.edges[0].node.content,
-      image: json.data.allContentstackBlogPost.edges[0].node.image.url
+      title: json.data.allContentstackPost.edges[0].node.title + ` (via Netlify Connect)`,
+      content: json.data.allContentstackPost.edges[0].node.content,
+      image: json.data.allContentstackPost.edges[0].node.image.url
     }
   }
 
