@@ -16,17 +16,17 @@ export default function Hero({
   height: string
 }) {
   return (
-    <div className={`absolute bg-black text-white z-20`}
+    <div className={`absolute bg-black text-white z-20 p-16 flex justify-center items-center`}
       style={{
         "top": top,
         "left": left,
         "width": width,
         "height": height,
+        backgroundImage: `url(${image})`
       }}
     >
-      <div className="bg-black w-full h-full p-16 flex justify-center items-center" style={{ backgroundImage: `url(${image})` }}>
-        <h1 className="font-bold text-5xl">{title}</h1>
-      </div>
+      <div className="absolute bg-black opacity-70 w-full h-full "></div>
+      <h1 className="font-bold text-5xl z-40">{title}</h1>
     </div>
   )
 }
