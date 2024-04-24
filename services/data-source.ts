@@ -9,6 +9,7 @@ export type ComponentMap = { [key in Component]?: DataSource }
 export type PageData = {
   hero?: {
     title: string
+    image: string
   }
   blogPost?: {
     image: string,

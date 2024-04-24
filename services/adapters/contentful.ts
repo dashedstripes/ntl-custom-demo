@@ -13,6 +13,9 @@ export async function fetchContentfulData(components: Component[]): Promise<Page
               heroCollection {
                 items {
                   title
+                  image {
+                    url
+                  }
                 }
               }
             `
@@ -51,7 +54,8 @@ export async function fetchContentfulData(components: Component[]): Promise<Page
     switch(component) {
       case "HERO":
         data.hero = {
-          title: json?.data?.heroCollection?.items?.[0]?.title
+          title: json?.data?.heroCollection?.items?.[0]?.title,
+          image: json?.data?.heroCollection?.items?.[0]?.image?.url
         }
         break
       case "BLOG_POST":

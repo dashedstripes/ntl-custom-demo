@@ -15,6 +15,9 @@ const HERO_CONTENTFUL = `
     edges {
       node {
         title
+        image {
+          url
+        }
       }
     }
   }
@@ -100,13 +103,15 @@ export async function fetchConnectData(map: ComponentMap): Promise<PageData> {
 
   if(json?.data?.allContentstackHero) {
     data.hero = {
-      title: json.data.allContentstackHero.edges[0].node.title + ` (via Netlify Connect)`
+      title: json.data.allContentstackHero.edges[0].node.title + ` (via Netlify Connect)`,
+      image: ""
     }
   }
 
   if(json?.data?.allContentfulHero) {
     data.hero = {
-      title: json.data.allContentfulHero.edges[0].node.title + ` (via Netlify Connect)`
+      title: json.data.allContentfulHero.edges[0].node.title + ` (via Netlify Connect)`,
+      image: json.data.allContentfulHero.edges[0].node.image.url
     }
   }
 
