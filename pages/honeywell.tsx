@@ -10,10 +10,10 @@ export default function Home({ data }: { data: PageData }) {
           title={data?.hero?.title} 
           image={data?.hero.image} 
 
-          top="104px"
+          top="169px"
           left="0px"
           width="100%"
-          height="550px"
+          height="577px"
         />
       )}
       
@@ -22,14 +22,14 @@ export default function Home({ data }: { data: PageData }) {
           title={data?.blogPost?.title} 
           content={data?.blogPost?.content} 
           image={data?.blogPost.image} 
-          top="1272px"
-          left="95px"
-          width="245px"
-          height="290px"
+          top="756px"
+          left="0px"
+          width="420px"
+          height="170px"
         />
       )}
 
-      <img src="/stonex.jpg" alt="page"/>
+      <img src="/site.jpg" alt="page"/>
     </div>
   );
 }

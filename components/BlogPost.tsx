@@ -26,7 +26,7 @@ export default function BlogPost({
         "height": height,
       }}
     >
-      <div className="flex gap-8 p-4 pt-5">
+      <div className="flex flex-col gap-8 p-4 pt-5">
         <img className="w-[100px]" src={image} alt="blog post"/>
         <div className="text-black">
           <h2>{title}</h2>
