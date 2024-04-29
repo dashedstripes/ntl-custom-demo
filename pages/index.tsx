@@ -7,6 +7,7 @@ export default function Home({ data }: { data: PageData }) {
     <div className="relative mx-auto w-[1240px]">
       {data?.hero && (
         <Hero 
+          id={data?.hero?.id}
           title={data?.hero?.title} 
           image={data?.hero.image} 
 
@@ -18,7 +19,8 @@ export default function Home({ data }: { data: PageData }) {
       )}
       
       {data?.blogPost && (
-        <BlogPost 
+        <BlogPost
+          id={data?.blogPost?.id}
           title={data?.blogPost?.title} 
           content={data?.blogPost?.content} 
           image={data?.blogPost.image} 
@@ -36,9 +38,9 @@ export default function Home({ data }: { data: PageData }) {
 
 export async function getStaticProps() {
   const data: PageData = await fetchData({
-    "HERO": "CONTENTSTACK",
-    "BLOG_POST": "CONTENTSTACK"
-  }, true);
+    "HERO": "CONTENTFUL",
+    "BLOG_POST": "CONTENTFUL"
+  }, false);
 
   return {
     props: {

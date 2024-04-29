@@ -8,10 +8,12 @@ export type ComponentMap = { [key in Component]?: DataSource }
 
 export type PageData = {
   hero?: {
+    id: string
     title: string
     image: string
   }
   blogPost?: {
+    id: string
     image: string,
     title: string,
     content: string

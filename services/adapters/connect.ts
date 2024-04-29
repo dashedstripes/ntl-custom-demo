@@ -4,6 +4,7 @@ const HERO_CONTENTSTACK = `
   allContentstackHero {
     edges {
       node {
+        id
         title
         image {
           url
@@ -17,6 +18,7 @@ const HERO_CONTENTFUL = `
   allContentfulHero {
     edges {
       node {
+        id
         title
         image {
           url
@@ -32,6 +34,7 @@ const BLOG_POST_CONTENTSTACK = `
   allContentstackPost {
     edges {
       node {
+        id
         title
         content
         image {
@@ -46,6 +49,7 @@ const BLOG_POST_CONTENTFUL = `
   allContentfulBlogPost {
     edges {
       node {
+        id
         title
         content
         image {
@@ -108,6 +112,7 @@ export async function fetchConnectData(map: ComponentMap): Promise<PageData> {
 
   if(json?.data?.allContentstackHero) {
     data.hero = {
+      id: json.data.allContentstackHero.edges[0].node.id,
       title: json.data.allContentstackHero.edges[0].node.title + ` (via Netlify Connect)`,
       image: json.data.allContentstackHero.edges[0].node.image.url
     }
@@ -115,6 +120,7 @@ export async function fetchConnectData(map: ComponentMap): Promise<PageData> {
 
   if(json?.data?.allContentfulHero) {
     data.hero = {
+      id: json.data.allContentfulHero.edges[0].node.id,
       title: json.data.allContentfulHero.edges[0].node.title + ` (via Netlify Connect)`,
       image: json.data.allContentfulHero.edges[0].node.image.url
     }
@@ -122,6 +128,7 @@ export async function fetchConnectData(map: ComponentMap): Promise<PageData> {
 
   if(json?.data?.allContentstackPost) {
     data.blogPost = {
+      id: json.data.allContentstackPost.edges[0].node.id,
       title: json.data.allContentstackPost.edges[0].node.title + ` (via Netlify Connect)`,
       content: json.data.allContentstackPost.edges[0].node.content,
       image: json.data.allContentstackPost.edges[0].node.image.url
@@ -130,6 +137,7 @@ export async function fetchConnectData(map: ComponentMap): Promise<PageData> {
 
   if(json?.data?.allContentfulBlogPost) {
     data.blogPost = {
+      id: json.data.allContentfulBlogPost.edges[0].node.id,
       title: json.data.allContentfulBlogPost.edges[0].node.title + ` (via Netlify Connect)`,
       content: json.data.allContentfulBlogPost.edges[0].node.content,
       image: json.data.allContentfulBlogPost.edges[0].node.image.url

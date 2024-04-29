@@ -1,4 +1,5 @@
 export default function Hero({
+  id,
   title,
   image,
 
@@ -7,6 +8,7 @@ export default function Hero({
   width,
   height,
 }: {
+  id: string,
   title: string,
   image: string,
 
@@ -16,7 +18,7 @@ export default function Hero({
   height: string
 }) {
   return (
-    <div className={`absolute bg-black text-white z-20 p-16 flex justify-center items-center`}
+    <div data-sb-object-id={id} className={`absolute bg-black text-white z-20 p-16 flex justify-center items-center`}
       style={{
         "top": top,
         "left": left,
@@ -26,7 +28,7 @@ export default function Hero({
       }}
     >
       <div className="absolute bg-black opacity-70 w-full h-full "></div>
-      <h1 className="font-bold text-5xl z-40">{title}</h1>
+      <h1 className="font-bold text-5xl z-40" data-sb-field-path="title">{title}</h1>
     </div>
   )
 }

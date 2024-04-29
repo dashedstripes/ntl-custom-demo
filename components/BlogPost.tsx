@@ -1,4 +1,5 @@
 export default function BlogPost({
+  id,
   title,
   content,
   image,
@@ -8,6 +9,7 @@ export default function BlogPost({
   width,
   height,
 }: {
+  id: string
   title: string
   content: string
   image: string
@@ -18,7 +20,7 @@ export default function BlogPost({
   height: string
 }) {
   return (
-    <div className={`absolute bg-[#f7f7f7]`}
+    <div data-sb-object-id={id} className={`absolute bg-[#f7f7f7]`}
       style={{
         "top": top,
         "left": left,
@@ -29,8 +31,8 @@ export default function BlogPost({
       <div className="flex flex-col gap-8 p-4 pt-5">
         <img className="w-[100px]" src={image} alt="blog post"/>
         <div className="text-black">
-          <h2>{title}</h2>
-          <p className="font-bold text-xl">{content}</p>
+          <h2 data-sb-field-path="title">{title}</h2>
+          <p className="font-bold text-xl" data-sb-field-path="content">{content}</p>
         </div>
       </div>
     </div>
